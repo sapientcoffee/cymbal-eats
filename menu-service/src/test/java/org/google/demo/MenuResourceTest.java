@@ -31,8 +31,6 @@ public class MenuResourceTest {
         menu.tagLine = "Test Tagline";
         menu.itemImageURL = null; // Set to null or a valid URL
         menu.itemThumbnailURL = null; // Set to null or a valid URL
-        menu.description = "This is a test description.";
-        menu.rating = 5;
         menu.status = Status.Ready;
 
         Mockito.when(menuRepository.findById(1L)).thenReturn(menu);
@@ -45,7 +43,7 @@ public class MenuResourceTest {
     }
 
     @Test
-    public void testCreateMenuWithDescriptionAndRating() {
+    public void testCreateMenu() {
         Menu menu = new Menu();
         menu.itemName = "Test Item";
         menu.itemPrice = java.math.BigDecimal.valueOf(10.0);
@@ -53,8 +51,6 @@ public class MenuResourceTest {
         menu.tagLine = "Test Tagline";
         menu.itemImageURL = null; // Set to null or a valid URL
         menu.itemThumbnailURL = null; // Set to null or a valid URL
-        menu.description = "This is a test description.";
-        menu.rating = 5;
         menu.status = Status.Ready;
 
         given()
@@ -64,44 +60,6 @@ public class MenuResourceTest {
             .then()
             .statusCode(200)
             .body("id", notNullValue())
-            .body("itemName", is("Test Item"))
-            .body("description", is("This is a test description."))
-            .body("rating", is(5));
-    }
-
-    @Test
-    public void testUpdateMenuWithDescriptionAndRating() {
-        // First, create a menu item to update
-        Menu menu = new Menu();
-        menu.itemName = "Original Item";
-        menu.itemPrice = java.math.BigDecimal.valueOf(5.0);
-        menu.spiceLevel = 0;
-        menu.tagLine = "Original Tagline";
-        menu.itemImageURL = null;
-        menu.itemThumbnailURL = null;
-        menu.description = "Original description.";
-        menu.rating = 3;
-        menu.status = Status.Ready;
-
-        Menu createdMenu = given()
-            .contentType(ContentType.JSON)
-            .body(menu)
-            .when().post("/menu")
-            .as(Menu.class);
-
-        // Now, update the menu item
-        createdMenu.itemName = "Updated Item";
-        createdMenu.description = "Updated description.";
-        createdMenu.rating = 4;
-
-        given()
-            .contentType(ContentType.JSON)
-            .body(createdMenu)
-            .when().put("/menu/" + createdMenu.id)
-            .then()
-            .statusCode(200)
-            .body("itemName", is("Updated Item"))
-            .body("description", is("Updated description."))
-            .body("rating", is(4));
+            .body("itemName", is("Test Item"));
     }
 }
