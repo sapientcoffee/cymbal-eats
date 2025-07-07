@@ -5,8 +5,8 @@ import java.net.URL;
 import java.time.LocalDateTime;
 import java.util.List;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
 
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
@@ -33,6 +33,12 @@ public class Menu extends PanacheEntity {
 
     @Column(name="item_thumbnail_url")
     public URL itemThumbnailURL;
+
+    @Column(name="description")
+    public String description;
+
+    @Column(name="rating")
+    public int rating;
 
     @Column(name="item_status")
     public Status status;
