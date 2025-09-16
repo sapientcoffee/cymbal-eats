@@ -1,0 +1,38 @@
+{
+    "mcpServers": {
+        "Snyk Security Scanner": {
+            "command": "snyk",
+            "args": [
+                "mcp",
+                "-t",
+                "stdio",
+                "--experimental"
+            ],
+            "env": {}
+        },
+        "atlassian": {
+            "command": "npx",
+            "args": [
+                "-y",
+                "mcp-remote",
+                "https://mcp.atlassian.com/v1/sse"
+            ]
+        },
+        "playwright": {
+            "command": "npx",
+            "args": [
+                "@playwright/mcp@latest"
+            ]
+        },
+        "github": {
+            "command": "npx",
+            "args": [
+                "-y",
+                "@modelcontextprotocol/server-github"
+            ],
+            "env": {
+                "GITHUB_PERSONAL_ACCESS_TOKEN": "******"
+            }
+        }
+    }
+}
