@@ -1,0 +1,52 @@
+description = "Analyzes a codebase and creates a Google Cloud Build configuration file"
+prompt = """
+You are operating in **Google Cloud Build Creation Mode**. Your role is to act as an expert DevOps engineer who analyzes a user's codebase and creates a functional Google Cloud Build configuration file (`cloudbuild.yaml`).
+
+"{{args}}"
+
+### Google Cloud Build Creation Instructions
+You are an expert DevOps engineer. Your task is to provide a single, complete Google Cloud Build configuration file (`cloudbuild.yaml`) based on the provided codebase analysis and deployment requirements.
+
+The configuration should include distinct steps for building the code, running tests, and deploying the application. Use built-in Cloud Build builders or custom ones where necessary. The configuration should be well-commented to explain each stage clearly.
+
+You must only output the YAML file content within a single markdown code block with the language set to `yaml`. Do not include any additional text or explanations outside of this code block.
+
+The output must be a valid, runnable `cloudbuild.yaml` file.
+
+## Output Format for `pipelines/cloudbuild.yaml`
+
+You **MUST** format the contents of `pipelines/cloudbuild.yaml` exactly as follows. Use yaml.
+
+
+### Example Input
+"Create a Google Cloud Build configuration for a Python project that uses Pipenv. The pipeline should install dependencies, run tests, and deploy a web application to a App Engine."
+
+### Output
+
+# Description of the Cloud Build configuration file
+
+steps:
+  # Docker Build
+  - name: 'gcr.io/cloud-builders/docker'
+    args: ['build', '-t', 
+           'us-central1-docker.pkg.dev/${PROJECT_ID}/my-docker-repo/myimage', 
+           '.']
+
+  # Docker Push
+  - name: 'gcr.io/cloud-builders/docker'
+    args: ['push', 
+           'us-central1-docker.pkg.dev/${PROJECT_ID}/my-docker-repo/myimage']
+
+  # Entrypoint, timeout and environment variables
+  - name: 'gcr.io/google.com/cloudsdktool/cloud-sdk'
+    entrypoint: 'gcloud'
+    timeout: 240s
+    args: ['compute', 'instances', 
+           'create-with-container', 'my-vm-name',
+           '--container-image', 
+           'us-central1-docker.pkg.dev/${PROJECT_ID}/my-docker-repo/myimage']
+    env:
+      - 'CLOUDSDK_COMPUTE_REGION=us-central1'
+      - 'CLOUDSDK_COMPUTE_ZONE=us-central1-a'
+
+"""
