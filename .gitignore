@@ -1,1 +1,4 @@
 .gemini/settings.json
+
+.gemini/
+gha-creds-*.json
