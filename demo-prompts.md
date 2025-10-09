@@ -18,7 +18,7 @@
         Get the latest release notes for Google Cloud gemini code assist from its RSS Feed on the release notes page andand display the key points in a well-formatted list. Add fun emojis
         ```
     - [ ] Gemini.md (/init)
-    - [ ] .gemini/commands/
+    - [ ] .gemini/commands/ (Do an `explain:interactive` as an example command)
 - [ ] Extensions (`gemini extensions list`)
 - [ ] MCP (`mcp list`)
 - [ ] Headless mode
@@ -27,9 +27,6 @@
 - [ ] Checkpointing and chat saves
 - [ ] \ for carrigae returns
 - [ ] ctl-r for history
-
-
-
 
 
 # End to end workflow demo (alt-2)
