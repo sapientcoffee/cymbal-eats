@@ -10,7 +10,7 @@
 - [ ] Agent Mode
     - [ ] MCP
 
-## CLI -  Super User
+## CLI -  Super User (alt-1)
 - [ ] Slash commands
     - [ ] OOTB (stats, help, tools)
         - [ ] Internet Connectivity 
@@ -32,7 +32,7 @@
 
 
 
-# End to end workflow demo
+# End to end workflow demo (alt-2)
 
 Open PRD in Google Doc and in Gemini app
 
@@ -127,11 +127,10 @@ locate source files in the employee-ui service and update them
 in the @ViewMenuPage.vue for rating and description make the changes for values to come from the variable, like for inventory
 ```
 
-[TODO - not install extension or tested it]
 In fact, the site feels a bit dated, lets reamagine it 
 
 ```
-nano bananna reimagine
+/nanobanana reimagine the UI in @current-ui.png to make it more halloween like
 ```
 
 go to stitch
@@ -183,7 +182,7 @@ could you review the code and flag any early potential issues?
 ```
 
 
-# Playwright 
+# Playwright (alt-3)
 
 In new tab
 * git clone https://github.com/GoogleCloudPlatform/testing-with-duet-ai-codelab.git
