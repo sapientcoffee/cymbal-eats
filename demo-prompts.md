@@ -14,7 +14,8 @@
 - [ ] Slash commands
     - [ ] OOTB (stats, help, tools)
         - [ ] Internet Connectivity 
-        ```Get the latest release notes for Google Cloud gemini code assist from its RSS Feed on the release notes page andand display the key points in a well-formatted list. Add fun emojis
+        ```
+        Get the latest release notes for Google Cloud gemini code assist from its RSS Feed on the release notes page andand display the key points in a well-formatted list. Add fun emojis
         ```
     - [ ] Gemini.md (/init)
     - [ ] .gemini/commands/
