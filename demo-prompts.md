@@ -2,27 +2,30 @@
 
 ## IDE - Super User
 
-[ ] Chat (traditional) and Inline interaction
-[ ] Custom Rules
-[ ] Custom Commands
-[ ] Add selection to chat context
-[ ] Deploy apps to Cloud Run
-[ ] Agent Mode
-    [ ] MCP
+- [ ] Chat (traditional) and Inline interaction
+- [ ] Custom Rules
+- [ ] Custom Commands
+- [ ] Add selection to chat context
+- [ ] Deploy apps to Cloud Run
+- [ ] Agent Mode
+    - [ ] MCP
 
 ## CLI -  Super User
-[ ] Slash commands
-    [ ] OOTB (stats, help, tools)
-    [ ] Gemini.md
-    [ ] .gemini/commands/
-[ ] Extensions
-[ ] MCP
-[ ] Headless mode
-[ ] Settings
-[ ] Shell mode
-[ ] Checkpointing and chat saves
-[ ] \ for carrigae returns
-[ ] ctl-r for history
+- [ ] Slash commands
+    - [ ] OOTB (stats, help, tools)
+        - [ ] Internet Connectivity 
+        ```Get the latest release notes for Google Cloud gemini code assist from its RSS Feed on the release notes page andand display the key points in a well-formatted list. Add fun emojis
+        ```
+    - [ ] Gemini.md (/init)
+    - [ ] .gemini/commands/
+- [ ] Extensions (`gemini extensions list`)
+- [ ] MCP (`mcp list`)
+- [ ] Headless mode
+- [ ] Settings
+- [ ] Shell mode
+- [ ] Checkpointing and chat saves
+- [ ] \ for carrigae returns
+- [ ] ctl-r for history
 
 
 
@@ -30,11 +33,18 @@
 
 # End to end workflow demo
 
-Open PRD in Google Doc
+Open PRD in Google Doc and in Gemini app
 
-Ask Gemini app to review the PRD and if it has enough to allow a developer to understand. How can it be imporved.
+```
+Review this PRD, is it in a good struture and does it have sufficient infomration for a developer to understand and implement including product managers to create user stories?
+```
 
 Do the same prompt in Gemini CLI
+
+CTL-r
+```
+Review this PRD @prd/PRD-Menu-Service-Description-Rating-v1.0.md , is it in a good structure and does it have sufficient information for a developer to understand and implement including product managers to create user stories?
+```
 
 ```
 Whats the context of the ITEM-1 user story in jira
@@ -45,11 +55,14 @@ Does this align with the PRD?
 ```
 
 ```
-/plan the implementation of this
+/plan:new the implementation of this
 ```
+Review the plan:new command and other plan commands
+
+Review the imp plan
 
 ```
-execute plan in a new branch
+execute /plan:impl in a new branch
 ```
 
 ## Open new pane for parrellel documentaiton
@@ -57,6 +70,8 @@ execute plan in a new branch
 ```
 Review the current documentaion for each service and improve it. I want /diagram:new flows and architectures for each service and also how the services interact with each other. Do this in a new branch.
 ```
+
+Open the preview page for some of the changes
 
 ## new pane to write unit test and execute (so can see live correction)
 
@@ -74,17 +89,24 @@ Or if use Snyk use their MCP (TODO fix CLI)
 Run security code scan for employee-ui application and report issues.
 ```
 
-
+```
 /code-review
+```
 
+```
+more ~/.gemini/extensions/code-review/commands/code-review.toml
+```
+
+```
 Commit changes to branch and create a PR
-
-<!-- /plan how to add a new api endpoint that will provide a productivity quote  -->
+```
 
 ## Code Review
 
 - look at GitHub
-- Call GitHub action
+- Call GitHub action (`@gemini-cli /review`)
+
+Review the /review prompt and also .gemini/styleguide.md
 
 - headless
 
